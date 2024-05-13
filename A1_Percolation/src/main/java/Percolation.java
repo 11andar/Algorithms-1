@@ -124,5 +124,24 @@ public class Percolation {
     public boolean percolates() { return percolation.find(virtualTopIndex) == percolation.find(virtualBottomIndex); }
 
     // test client (optional)
-    public static void main(String[] args) {}
+    public static void main(String[] args) {
+        int n = 8;
+        Percolation p = new Percolation(n);
+
+        while (!p.percolates()) {
+            int randomRow = StdRandom.uniformInt(1, n+1);
+            int randomCol = StdRandom.uniformInt(1, n+1);
+            p.open(randomRow, randomCol);
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++)
+                System.out.print(p.sites[i][j] ? "1  " : "0  ");
+            System.out.println();
+        }
+
+        System.out.print("Open sites: " + p.openSitesCount + "  " +
+                "Threshold: " + (double) p.openSitesCount/p.size + "    " +
+                "State: " + (p.percolates() ? "Percolates\n" : "Doesn't percolate\n"));
+    }
 }
