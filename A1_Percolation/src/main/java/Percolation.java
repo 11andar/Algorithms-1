@@ -105,7 +105,17 @@ public class Percolation {
     }
 
     // is the site (row, col) full?
-    public boolean isFull(int row, int col) {}
+    public boolean isFull(int row, int col) {
+        validateIndices(row, col);
+
+        if (!isOpen(row, col)) return false;
+
+        if (row == 1) return true;
+
+        int index = convertTo1D(row, col);
+
+        return fullness.find(virtualTopIndex) == fullness.find(index);
+    }
 
     // returns the number of open sites
     public int numberOfOpenSites() {}
