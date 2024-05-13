@@ -61,7 +61,10 @@ public class Percolation {
     public void open(int row, int col) {}
 
     // is the site (row, col) open?
-    public boolean isOpen(int row, int col) {}
+    public boolean isOpen(int row, int col) {
+        validateIndices(row, col);
+        return sites[row-1][col-1];
+    }
 
     // is the site (row, col) full?
     public boolean isFull(int row, int col) {}
