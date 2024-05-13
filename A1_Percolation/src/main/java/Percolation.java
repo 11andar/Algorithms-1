@@ -57,8 +57,46 @@ public class Percolation {
     // converts site's row and col to 1D index
     private int convertTo1D(int row, int col) { return (row-1) * rowSize + (col-1); }
 
+    // creates unions in percolation and fullness
+    private void updatePF(int p, int q) {
+        percolation.union(p, q);
+        fullness.union(p, q);
+    }
+
     // opens the site (row, col) if it is not open already
-    public void open(int row, int col) {}
+    // and connects with opened neighbours
+    public void open(int row, int col) {
+        validateIndices(row, col);
+        int sitesRow = row-1;
+        int sitesCol = col-1;
+
+        if(!isOpen(row, col)) {
+            sites[sitesRow][sitesCol] = true;
+            openSitesCount++;
+
+            int siteCurrent = convertTo1D(row, col);
+
+            if (row > 1 && isOpen(row-1, col)) {
+                int siteAbove = convertTo1D(row-1, col);
+                updatePF(siteCurrent, siteAbove);
+            }
+
+            if (col < rowSize && isOpen(row, col+1)) {
+                int siteRight = convertTo1D(row, col+1);
+                updatePF(siteCurrent, siteRight);
+            }
+
+            if (row < rowSize && isOpen(row+1, col)) {
+                int siteBelow = convertTo1D(row+1, col);
+                updatePF(siteCurrent, siteBelow);
+            }
+
+            if (col > 1 && isOpen(row, col-1)) {
+                int siteLeft = convertTo1D(row, col - 1);
+                updatePF(siteCurrent, siteLeft);
+            }
+        }
+    }
 
     // is the site (row, col) open?
     public boolean isOpen(int row, int col) {
