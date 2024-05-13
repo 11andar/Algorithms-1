@@ -44,11 +44,11 @@ public class Percolation {
     }
 
     // validates given index
-    public boolean isIndexValid(int index) {
+    private boolean isIndexValid(int index) {
         return 1 <= index && index <= rowSize;
     }
 
-    public void validateIndices(int row, int col) {
+    private void validateIndices(int row, int col) {
         if (!isIndexValid(row) || !isIndexValid(col))
             throw new IllegalArgumentException("Invalid value of row (" + row + ")" +
                                                " or col (" + col + ")");
