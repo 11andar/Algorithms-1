@@ -43,6 +43,17 @@ public class Percolation {
             fullness.union(i, virtualTopIndex);
     }
 
+    // validates given index
+    public boolean isIndexValid(int index) {
+        return 1 <= index && index <= rowSize;
+    }
+
+    public void validateIndices(int row, int col) {
+        if (!isIndexValid(row) || !isIndexValid(col))
+            throw new IllegalArgumentException("Invalid value of row (" + row + ")" +
+                                               " or col (" + col + ")");
+    }
+
     // opens the site (row, col) if it is not open already
     public void open(int row, int col) {}
 
