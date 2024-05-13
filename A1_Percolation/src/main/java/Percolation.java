@@ -54,6 +54,9 @@ public class Percolation {
                                                " or col (" + col + ")");
     }
 
+    // converts site's row and col to 1D index
+    private int convertTo1D(int row, int col) { return (row-1) * rowSize + (col-1); }
+
     // opens the site (row, col) if it is not open already
     public void open(int row, int col) {}
 
