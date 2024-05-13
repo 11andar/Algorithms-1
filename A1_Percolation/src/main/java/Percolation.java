@@ -118,10 +118,10 @@ public class Percolation {
     }
 
     // returns the number of open sites
-    public int numberOfOpenSites() {}
+    public int numberOfOpenSites() { return openSitesCount; }
 
     // does the system percolate?
-    public boolean percolates() {}
+    public boolean percolates() { return percolation.find(virtualTopIndex) == percolation.find(virtualBottomIndex); }
 
     // test client (optional)
     public static void main(String[] args) {}
