@@ -42,6 +42,26 @@ public class PercolationStats {
     public double confidenceHi() { return mean() + (CONSTANT_95 * stddev()) / Math.sqrt(numberOfTrials); }
 
     // test client (see below)
-    public static void main(String[] args)
+    public static void main(String[] args) {
+        if (args.length != 2) {
+            System.out.println("You have to pass exactly 2 CLAs of type 'int'");
+            return;
+        }
 
+        try {
+            int gridSize = Integer.parseInt(args[0]);
+            int trialsNum = Integer.parseInt(args[1]);
+
+            PercolationStats pStats = new PercolationStats(gridSize, trialsNum);
+
+            String confidenceInterval = "[" + pStats.confidenceLo() + ", " + pStats.confidenceHi() + "]";
+
+            System.out.println("mean                            = " + pStats.mean());
+            System.out.println("stddev                          = " + pStats.stddev());
+            System.out.println("95% confidence interval         = " + confidenceInterval);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Each CLA must be a parsable int");
+        }
+    }
 }
