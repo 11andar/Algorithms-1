@@ -2,8 +2,18 @@ import java.util.Iterator;
 
 public class Deque<Item> implements Iterable<Item> {
 
+    private class Node {
+        Item data;
+        Node next;
+    }
+
+    private Node first;
+    private Node last;
+
     // construct an empty deque
-    public Deque()
+    public Deque() {
+        first = last = null;
+    }
 
     // is the deque empty?
     public boolean isEmpty()
