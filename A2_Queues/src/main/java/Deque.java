@@ -80,7 +80,19 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     // return an iterator over items in order from front to back
-    public Iterator<Item> iterator()
+    public Iterator<Item> iterator() { return new ListIterator(); }
+
+    private class ListIterator implements Iterator<Item> {
+        private Node current = first;
+
+        public boolean hasNext() { return current != null; }
+
+        public Item next() {
+            Item data = current.data;
+            current = current.next;
+            return data;
+        }
+    }
 
     // unit testing (required)
     public static void main(String[] args)
