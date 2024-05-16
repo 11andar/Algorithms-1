@@ -23,7 +23,15 @@ public class Deque<Item> implements Iterable<Item> {
     public int size() { return elementsNum; }
 
     // add the item to the front
-    public void addFirst(Item item)
+    public void addFirst(Item item) {
+        Node newNode = new Node();
+        newNode.data = item;
+        newNode.next = first;
+
+        if (this.isEmpty())
+            last = newNode;
+        first = newNode;
+    }
 
     // add the item to the back
     public void addLast(Item item)
