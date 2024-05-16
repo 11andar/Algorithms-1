@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class Deque<Item> implements Iterable<Item> {
 
@@ -55,7 +56,14 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     // remove and return the item from the front
-    public Item removeFirst()
+    public Item removeFirst() {
+        if (this.isEmpty())
+            throw new NoSuchElementException("Can't remove item from an empty deque");
+
+        Item itemToRemove = first.data;
+        first = first.next;
+        return itemToRemove;
+    }
 
     // remove and return the item from the back
     public Item removeLast()
