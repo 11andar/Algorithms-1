@@ -9,6 +9,7 @@ public class Deque<Item> implements Iterable<Item> {
 
     private Node first;
     private Node last;
+    private int elementsNum;
 
     // construct an empty deque
     public Deque() {
@@ -19,7 +20,7 @@ public class Deque<Item> implements Iterable<Item> {
     public boolean isEmpty() { return first == null && last == null; }
 
     // return the number of items on the deque
-    public int size()
+    public int size() { return elementsNum; }
 
     // add the item to the front
     public void addFirst(Item item)
