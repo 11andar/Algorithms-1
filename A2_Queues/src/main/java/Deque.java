@@ -74,12 +74,19 @@ public class Deque<Item> implements Iterable<Item> {
         if (this.isEmpty())
             throw new NoSuchElementException("Can't remove item from an empty deque");
 
-        Node currentNode = first;
-        while (currentNode.next.next != null)
-            currentNode = currentNode.next;
-
         Item itemToRemove = last.data;
-        last = currentNode;
+        if (first == last) {
+            first = null;
+            last = null;
+        } else {
+            Node currentNode = first;
+            while (currentNode.next != last)
+                currentNode = currentNode.next;
+
+            last = currentNode;
+            last.next = null;
+        }
+
         elementsNum--;
 
         return itemToRemove;
