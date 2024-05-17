@@ -100,6 +100,13 @@ public class Deque<Item> implements Iterable<Item> {
         }
     }
 
+    public void printDeque() {
+        Iterator<Item> iter = iterator();
+        while (iter.hasNext())
+            System.out.print(iter.next() + " ");
+        System.out.println();
+    }
+
     // unit testing (required)
     public static void main(String[] args) {}
 
