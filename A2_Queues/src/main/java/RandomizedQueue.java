@@ -1,8 +1,12 @@
 import java.util.Iterator;
 
 public class RandomizedQueue<Item> implements Iterable<Item> {
+    private Item[] items;
+    private int size = 0;
+    private int n = 1;
+
     // construct an empty randomized queue
-    public RandomizedQueue()
+    public RandomizedQueue() { items = (Item[]) new Object[n]; }
 
     // is the randomized queue empty?
     public boolean isEmpty()
