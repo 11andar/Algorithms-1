@@ -1,4 +1,7 @@
 import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+import edu.princeton.cs.algs4.StdRandom;
 
 public class RandomizedQueue<Item> implements Iterable<Item> {
     private Item[] items;
@@ -34,7 +37,16 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     // remove and return a random item
-    public Item dequeue()
+    public Item dequeue() {
+        if (size == 0)
+            throw new NoSuchElementException("dequeue(): queue is empty");
+
+        int randomIndex = StdRandom.uniformInt(size);
+        Item randomItem = items[randomIndex];
+        items[randomIndex] = items[--size];
+        items[size] = null;
+        return randomItem;
+    }
 
     // return a random item (but do not remove it)
     public Item sample()
