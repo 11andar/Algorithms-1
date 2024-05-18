@@ -127,5 +127,55 @@ public class Deque<Item> implements Iterable<Item> {
     }
 
     // unit testing (required)
-    public static void main(String[] args) {}
+    public static void main(String[] args) {
+
+        Deque<Integer> intDeq = new Deque<Integer>();
+
+        System.out.print("Deque: ");
+        intDeq.printDeque();
+
+        System.out.println("isEmpty(): " + intDeq.isEmpty());
+        System.out.println("size: " + intDeq.size());
+
+        intDeq.addFirst(0);
+
+        System.out.print("Deque: ");
+        intDeq.printDeque();
+
+        intDeq.addLast(1);
+
+        System.out.print("Deque: ");
+        intDeq.printDeque();
+
+        System.out.println("isEmpty(): " + intDeq.isEmpty());
+        System.out.println("size: " + intDeq.size());
+
+        try {
+            intDeq.addFirst(null);
+        } catch (IllegalArgumentException e) {
+            System.out.println("addFirst(): Threw exception correctly");
+        }
+
+        try {
+            intDeq.addLast(null);
+        } catch (IllegalArgumentException e) {
+            System.out.println("addLast(): Threw exception correctly");
+        }
+
+        intDeq.removeFirst();
+
+        System.out.print("Deque: ");
+        intDeq.printDeque();
+
+        System.out.println("isEmpty(): " + intDeq.isEmpty());
+        System.out.println("size: " + intDeq.size());
+
+        intDeq.removeLast();
+
+        System.out.print("Deque: ");
+        intDeq.printDeque();
+
+        System.out.println("isEmpty(): " + intDeq.isEmpty());
+        System.out.println("size: " + intDeq.size());
+    }
 }
