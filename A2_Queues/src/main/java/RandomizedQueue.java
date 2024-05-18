@@ -18,6 +18,13 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     // return the number of items on the randomized queue
     public int size() { return size; }
 
+    // resize the items array
+    private void resize(int newSize) {
+        Item[] newItems = (Item[]) new Object[newSize];
+        System.arraycopy(items, 0, newItems, 0, newSize);
+        items = newItems;
+    }
+
     // add the item
     public void enqueue(Item item)
 
