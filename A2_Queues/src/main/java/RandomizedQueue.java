@@ -57,7 +57,29 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     }
 
     // return an independent iterator over items in random order
-    public Iterator<Item> iterator()
+    public Iterator<Item> iterator() { return new QueueIterator(); }
+
+    private class QueueIterator<Item> implements Iterator<Item> {
+        private int currentIndex = 0;
+        private final Item[] iteratorItems;
+
+        public QueueIterator() {
+            iteratorItems = (Item[]) new Object[size];
+            for (int i = 0; i < size; i++)
+                iteratorItems[i] = (Item) items[i];
+            StdRandom.shuffle(iteratorItems);
+        }
+
+        @Override
+        public boolean hasNext() { return currentIndex < iteratorItems.length; }
+
+        @Override
+        public Item next() {
+            if (!hasNext())
+                throw new NoSuchElementException("No more elements");
+            return iteratorItems[currentIndex++];
+        }
+    }
 
     // unit testing (required)
     public static void main(String[] args)
