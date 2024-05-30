@@ -29,7 +29,14 @@ public class Point implements Comparable<Point> {
     }
 
     public double slopeTo(Point that) {
-        // TODO: slope between the invoking point (x0, y0) and the argument point (x1, y1), given by the formula (y1 − y0) / (x1 − x0)
+        if (this.x == that.x) {
+            if (this.y == that.y)
+                return Double.NEGATIVE_INFINITY;
+            else
+                return Double.POSITIVE_INFINITY;
+        }
+        else
+            return (double) (that.y - this.y) /(that.x - this.x);
     }
 
     public Comparator<Point> slopeOrder() {
