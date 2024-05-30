@@ -12,7 +12,7 @@ public class Point implements Comparable<Point> {
     }
 
     public void drawTo(Point that) {
-        // TODO: draw a line from this point to that point
+        StdDraw.line(this.x, this.y, that.x, that.y);
     }
 
     public String toString() {
