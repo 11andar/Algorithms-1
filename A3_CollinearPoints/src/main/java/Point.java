@@ -1,0 +1,31 @@
+import java.util.Comparator;
+
+public class Point implements Comparable<Point> {
+    public Point(int x, int y) {
+        // TODO: create point (x, y)
+    }
+
+    public   void draw(){
+        // TODO: draw point on a plane
+    }
+
+    public   void drawTo(Point that) {
+        // TODO: draw a line from this point to that point
+    }
+
+    public String toString() {
+        // TODO: string representation of the point
+    }
+
+    public int compareTo(Point that) {
+        // TODO: compare points by y-coordinates, tie-breaking by x-coordinates
+    }
+
+    public double slopeTo(Point that) {
+        // TODO: slope between the invoking point (x0, y0) and the argument point (x1, y1), given by the formula (y1 − y0) / (x1 − x0)
+    }
+
+    public Comparator<Point> slopeOrder() {
+        // TODO: return a Comparator that compares its two argument points by the slopes they make with the invoking point (x0, y0)
+    }
+}
