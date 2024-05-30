@@ -16,7 +16,7 @@ public class Point implements Comparable<Point> {
     }
 
     public String toString() {
-        // TODO: string representation of the point
+        return "(" + x + ", " + y + ")";
     }
 
     public int compareTo(Point that) {
