@@ -1,5 +1,5 @@
-import java.util.Comparator;
 import edu.princeton.cs.algs4.StdDraw;
+import java.util.Comparator;
 
 public class Point implements Comparable<Point> {
     private final int x;
@@ -20,7 +20,12 @@ public class Point implements Comparable<Point> {
     }
 
     public int compareTo(Point that) {
-        // TODO: compare points by y-coordinates, tie-breaking by x-coordinates
+        if (this.y < that.y)
+                return -1;
+        else if (this.y == that.y)
+            return Integer.compare(this.x, that.x);
+        else
+            return 1;
     }
 
     public double slopeTo(Point that) {
