@@ -8,13 +8,7 @@ public class Point implements Comparable<Point> {
     public Point(int x, int y) { this.x = x; this.y = y; }
 
     public   void draw(){
-        StdDraw.setCanvasSize(900, 900);
-        StdDraw.setXscale(0, 32767);
-        StdDraw.setYscale(0, 32767);
-        StdDraw.setPenColor(StdDraw.BLACK);
-        StdDraw.setPenRadius(0.015);
         StdDraw.point(this.x, this.y);
-        StdDraw.show();
     }
 
     public void drawTo(Point that) {
