@@ -12,7 +12,9 @@ public class LineSegment {
     }
 
     public void draw() {
-        // TODO: Draw this line segment
+        p.draw();
+        q.draw();
+        p.drawTo(q);
     }
 
     public String toString() {
