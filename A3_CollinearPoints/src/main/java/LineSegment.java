@@ -18,6 +18,6 @@ public class LineSegment {
     }
 
     public String toString() {
-        // TODO: String representation
+        return "(" + p.toString() + ", " + q.toString() + ")";
     }
 }
