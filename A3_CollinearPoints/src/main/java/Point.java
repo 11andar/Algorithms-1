@@ -19,6 +19,7 @@ public class Point implements Comparable<Point> {
         return "(" + x + ", " + y + ")";
     }
 
+    @Override
     public int compareTo(Point that) {
         if (this.y < that.y)
                 return -1;
@@ -40,6 +41,14 @@ public class Point implements Comparable<Point> {
     }
 
     public Comparator<Point> slopeOrder() {
-        // TODO: return a Comparator that compares its two argument points by the slopes they make with the invoking point (x0, y0)
+        return new Comparator<Point>() {
+            @Override
+            public int compare(Point p1, Point p2) {
+                double s1 = slopeTo(p1);
+                double s2 = slopeTo(p2);
+
+                return Double.compare(s1, s2);
+            }
+        };
     }
 }
