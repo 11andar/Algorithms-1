@@ -1,8 +1,10 @@
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.ArrayList;
 
 public class FastCollinearPoints {
     private final ArrayList<LineSegment> segmentsList = new ArrayList<>();
+    private int numberOfSegments;
 
     public FastCollinearPoints(Point[] points) {
         // TODO: Find all line segments that contain 4 or more points
@@ -22,9 +24,7 @@ public class FastCollinearPoints {
         return true;
     }
 
-    public int numberOfSegments() {
-        // TODO: Return number of line segments
-    }
+    public int numberOfSegments() { return numberOfSegments; }
 
     public LineSegment[] segments() {
         // TODO: Return array of existing line segments
