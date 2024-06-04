@@ -26,7 +26,5 @@ public class FastCollinearPoints {
 
     public int numberOfSegments() { return numberOfSegments; }
 
-    public LineSegment[] segments() {
-        // TODO: Return array of existing line segments
-    }
+    public LineSegment[] segments() { return segmentsList.toArray(new LineSegment[0]); }
 }
