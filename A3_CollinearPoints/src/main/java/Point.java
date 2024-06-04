@@ -1,5 +1,6 @@
 import edu.princeton.cs.algs4.StdDraw;
 import java.util.Comparator;
+import java.util.Random;
 
 public class Point implements Comparable<Point> {
     private final int x;
@@ -19,7 +20,6 @@ public class Point implements Comparable<Point> {
         return "(" + x + ", " + y + ")";
     }
 
-    @Override
     public int compareTo(Point that) {
         if (this.y < that.y)
                 return -1;
@@ -37,7 +37,7 @@ public class Point implements Comparable<Point> {
                 return Double.POSITIVE_INFINITY;
         }
         else
-            return (double) (that.y - this.y) /(that.x - this.x);
+            return (double) (that.y - this.y)/(that.x - this.x);
     }
 
     public Comparator<Point> slopeOrder() {
