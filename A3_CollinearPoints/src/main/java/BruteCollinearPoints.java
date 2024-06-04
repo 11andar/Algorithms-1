@@ -54,4 +54,35 @@ public class BruteCollinearPoints {
     public LineSegment[] segments() {
         return segmentsList.toArray(new LineSegment[0]);
     }
+
+    public static void main(String[] args) {
+        int lowerBound = 0;
+        int upperBound = 100;
+        Point[] points = new Point[100];
+        Random rand = new Random();
+
+        for (int i = 0; i < points.length; i++) {
+            int randX = rand.nextInt(lowerBound, upperBound);
+            int randY = rand.nextInt(lowerBound, upperBound);
+            points[i] = new Point(randX, randY);
+        }
+
+        BruteCollinearPoints b = new BruteCollinearPoints(points);
+        System.out.println("Number of segments: " + b.numberOfSegments);
+
+        StdDraw.setCanvasSize(800, 800);
+        StdDraw.setXscale(lowerBound, upperBound);
+        StdDraw.setYscale(lowerBound, upperBound);
+        StdDraw.setPenRadius(0.015);
+        StdDraw.setPenColor(StdDraw.GREEN);
+
+        for (LineSegment s : b.segments())
+            s.draw();
+
+        StdDraw.setPenColor(StdDraw.BLACK);
+
+        for (Point point : points)
+            point.draw();
+        StdDraw.show();
+    }
 }
