@@ -12,8 +12,6 @@ public class LineSegment {
     }
 
     public void draw() {
-        p.draw();
-        q.draw();
         p.drawTo(q);
     }
 
