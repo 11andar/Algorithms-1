@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Random;
 
 public class BruteCollinearPoints {
-    private int numberOfSegments = 0;
     private final ArrayList<LineSegment> segmentsList = new ArrayList<LineSegment>();
 
 
@@ -26,10 +25,8 @@ public class BruteCollinearPoints {
                             Point[] segment = {p1, p2, p3, p4};
                             Arrays.sort(segment);
                             LineSegment tempSegment = new LineSegment(segment[0], segment[3]);
-                            if (!segmentsList.contains(tempSegment)) {
+                            if (!segmentsList.contains(tempSegment))
                                 segmentsList.add(tempSegment);
-                                numberOfSegments++;
-                            }
                         }
                     }
                 }
@@ -48,7 +45,7 @@ public class BruteCollinearPoints {
     }
 
     public int numberOfSegments() {
-        return numberOfSegments;
+        return segmentsList.size();
     }
 
     public LineSegment[] segments() {
