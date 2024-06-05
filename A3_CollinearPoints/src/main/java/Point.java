@@ -12,7 +12,7 @@ public class Point implements Comparable<Point> {
 
     private void validatePoint(Point point) {
         if (point == null)
-            throw new IllegalArgumentException("Point can't be null");
+            throw new NullPointerException("Point can't be null");
     }
 
     public void draw() {
