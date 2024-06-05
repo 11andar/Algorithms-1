@@ -1,5 +1,3 @@
-import edu.princeton.cs.algs4.StdDraw;
-
 public class LineSegment {
     private final Point p;
     private final Point q;
