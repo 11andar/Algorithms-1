@@ -65,7 +65,7 @@ public class BruteCollinearPoints {
         }
 
         BruteCollinearPoints b = new BruteCollinearPoints(points);
-        System.out.println("Number of segments: " + b.numberOfSegments);
+        System.out.println("Number of segments: " + b.numberOfSegments());
 
         StdDraw.setCanvasSize(800, 800);
         StdDraw.setXscale(lowerBound, upperBound);
