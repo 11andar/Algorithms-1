@@ -52,7 +52,7 @@ public class FastCollinearPoints {
 
     private boolean segmentExists(LineSegment segment) {
         for (LineSegment s : segmentsList)
-            if (segment == s)
+            if (s.equals(segment))
                 return true;
         return false;
     }
