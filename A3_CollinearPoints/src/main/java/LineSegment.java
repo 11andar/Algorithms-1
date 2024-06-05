@@ -16,4 +16,17 @@ public class LineSegment {
     public String toString() {
         return "(" + p.toString() + ", " + q.toString() + ")";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        LineSegment that = (LineSegment) obj;
+        return (p.equals(that.p) && q.equals(that.q)) || (p.equals(that.q) && q.equals(that.p));
+    }
+
+    @Override
+    public int hashCode() {
+        return p.hashCode() + q.hashCode();
+    }
 }
