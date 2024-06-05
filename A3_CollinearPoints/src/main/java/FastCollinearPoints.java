@@ -3,7 +3,6 @@ import java.util.ArrayList;
 
 public class FastCollinearPoints {
     private final ArrayList<LineSegment> segmentsList = new ArrayList<>();
-    private int numberOfSegments;
 
     private class Tuple {
         private final double slope;
@@ -33,7 +32,7 @@ public class FastCollinearPoints {
         return true;
     }
 
-    public int numberOfSegments() { return numberOfSegments; }
+    public int numberOfSegments() { return segmentsList.size(); }
 
     public LineSegment[] segments() { return segmentsList.toArray(new LineSegment[segmentsList.size()]); }
 }
