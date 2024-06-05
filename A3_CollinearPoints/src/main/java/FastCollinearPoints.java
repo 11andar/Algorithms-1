@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.ArrayList;
 
 public class FastCollinearPoints {
@@ -36,5 +35,5 @@ public class FastCollinearPoints {
 
     public int numberOfSegments() { return numberOfSegments; }
 
-    public LineSegment[] segments() { return segmentsList.toArray(new LineSegment[0]); }
+    public LineSegment[] segments() { return segmentsList.toArray(new LineSegment[segmentsList.size()]); }
 }
