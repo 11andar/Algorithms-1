@@ -6,9 +6,6 @@ public class BruteCollinearPoints {
 
 
     public BruteCollinearPoints(Point[] points) {
-        if (points == null)
-            throw new IllegalArgumentException("points array can't be null");
-
         if (!isValid(points))
             throw new IllegalArgumentException("point can't be null");
 
