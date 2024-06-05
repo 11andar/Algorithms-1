@@ -25,7 +25,8 @@ public class FastCollinearPoints {
                     if (slopePoints.size() >= 3) {
                         slopePoints.add(origin);
                         Collections.sort(slopePoints);
-                        LineSegment newSegment = new LineSegment(slopePoints.getFirst(), slopePoints.getLast());
+                        int lastIndex = slopePoints.size()-1;
+                        LineSegment newSegment = new LineSegment(slopePoints.get(0), slopePoints.get(lastIndex));
 
                         if (!segmentExists(newSegment))
                             segmentsList.add(newSegment);
