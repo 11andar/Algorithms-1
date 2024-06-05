@@ -5,7 +5,10 @@ public class Point implements Comparable<Point> {
     private final int x;
     private final int y;
 
-    public Point(int x, int y) { this.x = x; this.y = y; }
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 
     public   void draw(){
         StdDraw.point(this.x, this.y);
