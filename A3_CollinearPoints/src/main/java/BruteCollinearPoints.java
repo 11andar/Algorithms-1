@@ -35,7 +35,7 @@ public class BruteCollinearPoints {
 
         for (int i = 0; i < points.length-1; i++)
             for (int j = i+1; j < points.length; j++)
-                if (points[i] == null || points[j] == null || points[i] == points[j])
+                if (points[i] == null || points[j] == null || points[i].compareTo(points[j]) == 0)
                     return false;
         return true;
     }
