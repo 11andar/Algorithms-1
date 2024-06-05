@@ -15,8 +15,8 @@ public class BruteCollinearPoints {
         for (int i = 0; i < points.length-3; i++) {
             for (int j = i+1; j < points.length-2; j++) {
                 for (int k = j+1; k < points.length-1; k++) {
-                    for (int l = k+1; l < points.length; l++) {
-                        Point p1 = points[i], p2 = points[j], p3 = points[k], p4 = points[l];
+                    for (int m = k+1; m < points.length; m++) {
+                        Point p1 = points[i], p2 = points[j], p3 = points[k], p4 = points[m];
 
                         if (p1.slopeTo(p2) == p1.slopeTo(p3) && p1.slopeTo(p2) == p1.slopeTo(p4)) {
                             Point[] segment = {p1, p2, p3, p4};
