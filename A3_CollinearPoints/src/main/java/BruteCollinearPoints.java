@@ -1,8 +1,5 @@
-import edu.princeton.cs.algs4.StdDraw;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Random;
 
 public class BruteCollinearPoints {
     private final ArrayList<LineSegment> segmentsList = new ArrayList<LineSegment>();
@@ -36,11 +33,13 @@ public class BruteCollinearPoints {
     }
 
     private boolean isValid(Point[] points) {
-        HashSet<Point> seen = new HashSet<>();
-        for (Point point : points) {
-            if (!seen.add(point) || point == null)
-                return false;
-        }
+        if (points == null)
+            return false;
+
+        for (int i = 0; i < points.length-1; i++)
+            for (int j = i+1; j < points.length; j++)
+                if (points[i] == null || points[j] == null || points[i] == points[j])
+                    return false;
         return true;
     }
 
