@@ -10,7 +10,7 @@ public class Point implements Comparable<Point> {
         this.y = y;
     }
 
-    public   void draw(){
+    public void draw() {
         StdDraw.point(this.x, this.y);
     }
 
