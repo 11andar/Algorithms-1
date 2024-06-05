@@ -10,6 +10,11 @@ public class Point implements Comparable<Point> {
         this.y = y;
     }
 
+    private void validatePoint(Point point) {
+        if (point == null)
+            throw new IllegalArgumentException("Point can't be null");
+    }
+
     public void draw() {
         StdDraw.point(this.x, this.y);
     }
@@ -23,6 +28,8 @@ public class Point implements Comparable<Point> {
     }
 
     public int compareTo(Point that) {
+        validatePoint(that);
+
         if (this.y < that.y)
                 return -1;
         else if (this.y == that.y)
@@ -32,6 +39,8 @@ public class Point implements Comparable<Point> {
     }
 
     public double slopeTo(Point that) {
+        validatePoint(that);
+
         if (this.x == that.x) {
             if (this.y == that.y)
                 return Double.NEGATIVE_INFINITY;
@@ -50,6 +59,9 @@ public class Point implements Comparable<Point> {
         return new Comparator<Point>() {
             @Override
             public int compare(Point p1, Point p2) {
+                validatePoint(p1);
+                validatePoint(p2);
+
                 double s1 = slopeTo(p1);
                 double s2 = slopeTo(p2);
 
