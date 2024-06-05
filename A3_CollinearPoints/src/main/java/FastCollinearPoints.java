@@ -1,24 +1,41 @@
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class FastCollinearPoints {
     private final ArrayList<LineSegment> segmentsList = new ArrayList<>();
 
-    private class Tuple {
-        private final double slope;
-        private final Point point;
-
-        public Tuple(double slope, Point point) {
-            this.slope = slope;
-            this.point = point;
-        }
-    }
-
     public FastCollinearPoints(Point[] points) {
-        // TODO: Find all line segments that contain 4 or more points
         if (!isValid(points))
             throw new IllegalArgumentException("points array is not valid");
 
+        for (Point origin : points) {
+            Point[] pointsCopy = points.clone();
+            Arrays.sort(pointsCopy, origin.slopeOrder());
+            ArrayList<Point> slopePoints = new ArrayList<>();
+            double previousSlope = Double.NEGATIVE_INFINITY;
+
+            for (int i = 1; i < pointsCopy.length; i++) {
+                Point currentPoint = pointsCopy[i];
+                double currentSlope = origin.slopeTo(currentPoint);
+
+                if (currentSlope == previousSlope)
+                    slopePoints.add(currentPoint);
+                else {
+                    if (slopePoints.size() >= 3) {
+                        slopePoints.add(origin);
+                        Collections.sort(slopePoints);
+                        LineSegment newSegment = new LineSegment(slopePoints.getFirst(), slopePoints.getLast());
+
+                        if (!segmentExists(newSegment))
+                            segmentsList.add(newSegment);
+                    }
+                    slopePoints.clear();
+                    slopePoints.add(currentPoint);
+                }
+                previousSlope = currentSlope;
+            }
+        }
     }
 
     private boolean isValid(Point[] points) {
@@ -30,6 +47,13 @@ public class FastCollinearPoints {
                 if (points[i] == null || points[j] == null || points[i] == points[j])
                     return false;
         return true;
+    }
+
+    private boolean segmentExists(LineSegment segment) {
+        for (LineSegment s : segmentsList)
+            if (segment == s)
+                return true;
+        return false;
     }
 
     public int numberOfSegments() { return segmentsList.size(); }
