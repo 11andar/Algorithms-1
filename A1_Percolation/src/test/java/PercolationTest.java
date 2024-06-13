@@ -22,4 +22,12 @@ public class PercolationTest {
             for (int j = 1; j <= gridSize; j++)
                 assertFalse(percolation.isOpen(i, j));
     }
+
+    @Test
+    public void testOpen() {
+        assertThrows(IllegalArgumentException.class, () -> percolation.open(-1, -1));
+        percolation.open(2, 3);
+        assertTrue(percolation.isOpen(2, 3));
+        assertFalse(percolation.isOpen(1, 2));
+    }
 }
