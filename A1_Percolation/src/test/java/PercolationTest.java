@@ -38,4 +38,12 @@ public class PercolationTest {
         assertTrue(percolation.isOpen(2, 3));
         assertFalse(percolation.isOpen(2, 1));
     }
+
+    @Test
+    public void testIsFull() {
+        assertThrows(IllegalArgumentException.class, () -> percolation.isFull(-1, -1));
+        percolation.open(1, 1);
+        assertTrue(percolation.isFull(1, 1));
+        assertFalse(percolation.isFull(2, 1));
+    }
 }
