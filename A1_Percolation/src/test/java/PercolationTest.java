@@ -30,4 +30,12 @@ public class PercolationTest {
         assertTrue(percolation.isOpen(2, 3));
         assertFalse(percolation.isOpen(1, 2));
     }
+
+    @Test
+    public void testIsOpen() {
+        assertThrows(IllegalArgumentException.class, () -> percolation.isOpen(-1, -1));
+        percolation.open(2, 3);
+        assertTrue(percolation.isOpen(2, 3));
+        assertFalse(percolation.isOpen(2, 1));
+    }
 }
