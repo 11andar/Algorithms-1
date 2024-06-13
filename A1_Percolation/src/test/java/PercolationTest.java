@@ -55,4 +55,17 @@ public class PercolationTest {
         percolation.open(2, 3);
         assertEquals(2, percolation.numberOfOpenSites());
     }
+
+    @Test
+    public void testPercolates() {
+        assertFalse(percolation.percolates());
+        percolation.open(1, 1);
+        assertFalse(percolation.percolates());
+        percolation.open(2, 1);
+        assertFalse(percolation.percolates());
+        percolation.open(3, 1);
+        assertFalse(percolation.percolates());
+        percolation.open(4, 1);
+        assertTrue(percolation.percolates());
+    }
 }
